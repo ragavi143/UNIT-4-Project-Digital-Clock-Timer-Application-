@@ -1,0 +1,93 @@
+HTML Code: “digital-clock.html”  
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Digital Clock / Timer</title>  
+    <link rel="stylesheet" href="style.css">  
+    <script src="script.js" defer></script>  
+</head>  
+<body>  
+  
+<h1>Digital Clock / Timer</h1>  
+  
+<div id="clock">00:00:00</div>  
+<div id="timer">00:00:00</div>  
+  
+<button onclick="start()">Start</button>  
+<button onclick="stop()">Stop</button>  
+<button onclick="reset()">Reset</button>  
+  </body>  
+</html>  
+  
+  
+  
+CSS Code: “digital-clock.CSS”  
+  
+body {  
+ font-family: Arial, sans-serif;     text-align: center;      background-color: black;      color: white;  
+}  
+  
+h1 {      margin-top: 20px;  
+}  
+  
+#clock, #timer {     fontsize: 40px;      margin: 20px;      padding: 15px;     border: 2px solid white;     border-radius: 10px;     
+display: inline-block;  
+}  
+  
+button {      padding: 10px 20px;     margin: 10px;      font-size: 16px;     
+cursor: pointer;  
+  
+  
+  
+JavaScript Code: “digital-clock.CSS”  
+ 
+ // ================= CLOCK ================= 
+function updateClock() { 
+    const now = new Date(); 
+ 
+    let hours = now.getHours();     let minutes = now.getMinutes();     let seconds = now.getSeconds(); 
+ 
+    // Format to 2 digits     hours = String(hours).padStart(2, '0');     minutes = String(minutes).padStart(2, '0');     seconds = String(seconds).padStart(2, '0'); 
+ 
+    document.getElementById("clock").textContent = 
+        `${hours}:${minutes}:${seconds}`; 
+} 
+ 
+// Run clock every second setInterval(updateClock, 1000); 
+updateClock(); // initial call 
+ 
+ 
+// ================= TIMER ================= 
+let timerInterval = null; let totalSeconds = 0; 
+let isRunning = false; 
+ 
+// Update timer display function updateTimer() {     let hrs = Math.floor(totalSeconds / 3600);     let mins = Math.floor((totalSeconds % 3600) / 60);     let secs = totalSeconds % 60; 
+ 
+    hrs = String(hrs).padStart(2, '0');     mins = String(mins).padStart(2, '0'); 
+    secs = String(secs).padStart(2, '0'); 
+ 
+    document.getElementById("timer").textContent = 
+        `${hrs}:${mins}:${secs}`; 
+} 
+ 
+// Start Timer function startTimer() {     if (!isRunning) { 
+        isRunning = true; 
+ 
+        timerInterval = setInterval(() => {             totalSeconds++;             updateTimer(); 
+        }, 1000); 
+    } 
+} 
+ 
+// Stop Timer function stopTimer() {     clearInterval(timerInterval);     isRunning = false; 
+} 
+ 
+// Reset Timer function resetTimer() {     clearInterval(timerInterval);     totalSeconds = 0;     isRunning = false; 
+    updateTimer(); 
+} 
+ 
+ 
+// ================= EVENT LISTENERS ================= document.getElementById("startBtn").addEventListener("click", startTimer); document.getElementById("stopBtn").addEventListener("click", stopTimer); document.getElementById("resetBtn").addEventListener("click", resetTimer); 
+ 
+// Initial display updateTimer();  
+  
