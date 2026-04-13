@@ -1,0 +1,48 @@
+Aim  
+To design and implement a Digital Clock and Timer Application using HTML, CSS, and JavaScript that displays the real-time clock and allows users to start, stop, and reset a timer.  
+  
+Procedure  
+1.	Identify the requirement to create a Digital Clock and Timer application.   
+  
+2.	Create three files for the project:   
+•	digital-clock.html   
+•	style.css   
+•	script.js   
+  
+3.	In the HTML file, create the basic structure using:   
+  
+•	<!DOCTYPE html>   
+•	<html>   
+•	<head>   
+•	<body>   
+  
+4.	Set the title as Digital Clock / Timer.   
+  
+5.	Add a <div> element with id "clock" to display the real-time clock.   
+  
+6.	Add another <div> with id "timer" to display the timer.   
+  
+7.	Add three buttons:   
+•	Start   
+•	Stop   
+•	Reset   
+  
+8.	Link the CSS file using <link> tag.   
+9.	Link the JavaScript file using <script> tag with defer.   
+  
+10.	In CSS file:   
+•	Style the body with dark background   
+•	Center the content   
+•	Style clock and timer boxes   
+•	Style buttons   
+  	  
+11.	In JavaScript file:   
+•	Use setInterval() to update the clock every second   
+•	Create a timer using a seconds counter   
+•	Implement Start, Stop, Reset functions   
+•	Update the DOM dynamically   
+  
+12.	Save all files and open the HTML file in a browser.   
+  
+13.	Test the application by clicking Start, Stop, and Reset buttons.   
+  
